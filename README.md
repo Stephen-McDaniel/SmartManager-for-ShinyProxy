@@ -43,7 +43,7 @@ If you love this project, please give it a ⭐.
 
 ## 📫 Issues
 
-Please share issues [in the repository] (https://github.com/Stephen-McDaniel/SmartManager-for-ShinyProxy/issues).
+Please share issues here in this repository [Issues](https://github.com/Stephen-McDaniel/SmartManager-for-ShinyProxy/issues).
 
 ## 📘 Docs
 
