@@ -3,18 +3,18 @@
 
 - [YakData SmartManager for ShinyProxy](#yakdata-smartmanager-for-shinyproxy)
   - [The production-ready way to securely share R shiny web apps & RMarkdown docs. Includes R 4.1.1, server-based RStudio IDE, monitoring of containers via Grafana dashboards & free SSL renewal.](#the-production-ready-way-to-securely-share-r-shiny-web-apps--rmarkdown-docs-includes-r-411-server-based-rstudio-ide-monitoring-of-containers-via-grafana-dashboards--free-ssl-renewal)
-  - [� Features](#-features)
+  - [🚀 Features](#-features)
   - [🧰 Install and setup 🔒 SSL/TLS](#-install-and-setup--ssltls)
   - [🔐 LICENSE](#-license)
   - [⭐ Inspiration](#-inspiration)
   - [📫 Issues](#-issues)
   - [📘 Docs](#-docs)
-  - [💼 Alternatives](#-alternatives)
+  - [🎡 Alternatives](#-alternatives)
   - [🧑‍💻 Discussion](#-discussion)
   
 ![What is YakData SmartManager for ShinyProxy?](./YakData-SmartManager-for-ShinyProxy.gif)
 
-## 🍒 Features
+## 🚀 Features
 
 * YakData SmartManager for ShinyProxy on AWS is the production-ready way to efficiently publish your interactive R shiny web applications, R Markdown reports & R shiny dashboards, enabling you to securely share your analyses with colleagues & clients.
 * Save weeks of time to get up and running with a complete solution and continue saving days of update time with YakData SmartManager for ShinyProxy.
@@ -56,7 +56,7 @@ RStudio IDE repository: https://github.com/rstudio/rstudio
 Grafana docs: https://grafana.com/docs/
 
 
-## 💼 Alternatives
+## 🎡 Alternatives
 
 Alternatives include RStudio Shiny Server Pro and a subset of the RStudio Connect capabilities.
 
