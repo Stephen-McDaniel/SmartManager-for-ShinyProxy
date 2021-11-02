@@ -1,0 +1,52 @@
+proxy:
+  #
+  #  SmartManager for ShinyProxy
+  #  © 2021, YakData, LLC All Rights Reserved.
+  #
+  #  Distributed under the YUMMY License v1.0 - a sustainable,
+  #     open-source license the license text is available at
+  #     https://github.com/SmartManagerPro/ShinyProxy
+  #
+  # Do not change the next 2 lines until a valid license is obtained
+  title: YakData SmartManager for ShinyProxy
+  logo-url: /webassets/images/YakData_Logo_20171101_S_36_36.png.webp
+  # Recommended to not change the following lines - breaking changes
+  port: 8080
+  template-path: /opt/shinyproxy/templates/yakdata
+  server:
+    forward-headers-strategy: native
+  docker:
+    internal-networking: true
+  usage-stats-url: micrometer
+  # Begin user editable section
+  #    See https://www.shinyproxy.io/documentation/ for details
+  authentication: simple
+  admin-groups: admins
+  users:
+    - name: stephen
+      password: ChangeMeThisReallyLonGPa$$w0rdISpractical
+      groups: admins, scientists
+    - name: eileen
+      password: ChangeMe2BearsLovEShortPa$$w0rdwithHunnY
+      groups: scientists
+  # published content
+  specs:
+    - id: 01_hello
+      display-name: Hello Application
+      description: Application which demonstrates the basics of a Shiny app
+      container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
+      container-image: yakdata/verse-r-4.1.1
+      container-network: yakdata
+      access-groups: admins
+    - id: 06_tabsets
+      container-cmd: ["R", "-e", "shinyproxy::run_06_tabsets()"]
+      container-image: yakdata/verse-r-4.1.1
+      container-network: yakdata
+      access-groups: [admins, scientists]
+
+# Recommended to not change the following lines - breaking changes
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true

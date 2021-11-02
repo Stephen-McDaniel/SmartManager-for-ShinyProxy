@@ -1,0 +1,2 @@
+# update SSL if older than 60 days
+33 8 * * 0 root  /yakdata/utilities/scripts/checkagerenewssl.sh

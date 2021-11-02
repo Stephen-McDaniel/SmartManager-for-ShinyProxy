@@ -1,0 +1,45 @@
+global:
+  scrape_interval:     5s
+  evaluation_interval: 5s
+
+  # Attach these labels to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager).
+  external_labels:
+      monitor: 'docker-host-alpha'
+
+# Load and evaluate rules in this file every 'evaluation_interval' seconds.
+rule_files:
+  - "alert.rules"
+
+# A scrape configuration containing exactly one endpoint to scrape.
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+
+  - job_name: 'shinyproxy'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['shinyproxy:9090']
+        labels:
+          group: 'shinyproxy'
+
+  - job_name: 'cadvisor'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['cadvisor:8080']
+        labels:
+          group: 'cadvisor'
+
+#  - job_name: 'nginx'
+#    scrape_interval: 10s
+#    static_configs:
+#      - targets: ['nginxexporter:9113']
+
+#  - job_name: 'aspnetcore'
+#    scrape_interval: 10s
+#    static_configs:
+#      - targets: ['eventlog-proxy:5000', 'eventlog:5000']
