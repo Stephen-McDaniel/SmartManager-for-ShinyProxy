@@ -41,7 +41,7 @@ The YUMMY approach is an innovative model to create sustainable, open-source pro
 * ShinyProxy is a proven alternative with years of development, feedback and releases.
 * We experienced ShinyProxy at some of our client engagements and saw the enthusiasm from companies using it.
 
-If you love this project, please consider it a ⭐.
+If you love this project, please give it a ⭐.
 
 ## 📫 Issues
 
