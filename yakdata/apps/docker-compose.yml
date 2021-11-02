@@ -1,0 +1,218 @@
+version: '2.3'
+
+#======================================================
+#
+#  SmartManager for ShinyProxy
+#  © 2021, YakData, LLC
+#  All Rights Reserved.
+#  YakData, LLC is a Florida, USA private limited company.
+#
+#  Distributed under the YUMMY License v1.0 -
+#     a sustainable, open-source license
+#     the license text is available at
+#     https://github.com/SmartManagerPro/ShinyProxy
+#
+#  YoU make Money, we make MoneY. If you don't make money
+#     using it, you are allowed to use the Software with a
+#     free license key issued at https://YakData.com
+#     License Keys include periodic security and upgrade releases.
+#     All production usage of this software requires a
+#     valid license key obtained at https://YakData.com
+#
+#  The Software is provided "as is", without warranty of any kind,
+#     express or implied, including but not limited to the
+#     warranties of merchantability, fitness for a particular
+#     purpose and noninfringement. In no event shall the authors
+#     or copyright holders be liable for any claim, damages or
+#     other liability, whether in an action of contract, tort or
+#     otherwise, arising from, out of or in connection with
+#     SmartManager for ShinyProxy or the use or other dealings
+#     in the Software.
+#
+#   Developer: Stephen McDaniel
+#
+#        Date: 2021
+#   Mod Dates:
+#
+#        File: /yakdata/apps/docker-compose.yml
+# Description:
+#
+#  Key inputs:
+# Key outputs:
+#
+#  Depends on:
+#
+#   Rev Notes:
+#
+#======================================================
+
+# Recommended admin modified section
+
+x-edit: &nginx_resources
+  cpu_count: 1
+  cpu_percent: 60
+  mem_reservation: "10m"
+  mem_limit: "200m"
+  memswap_limit: "0m"
+
+x-edit: &shinyproxy_resources
+  cpu_count: 2
+  cpu_percent: 80
+  mem_reservation: "150m"
+  mem_limit: "600m"
+  memswap_limit: "0m"
+
+x-edit: &cadvisor_resources
+  cpu_count: 1
+  cpu_percent: 20
+  mem_reservation: "100m"
+  mem_limit: "200m"
+  memswap_limit: "0m"
+
+x-edit: &prometheus_resources
+  cpu_count: 1
+  cpu_percent: 20
+  mem_reservation: "100m"
+  mem_limit: "200m"
+  memswap_limit: "0m"
+
+x-edit: &grafana_resources
+  cpu_count: 1
+  cpu_percent: 20
+  mem_reservation: "100m"
+  mem_limit: "200m"
+  memswap_limit: "0m"
+
+# END of recommended admin modified section
+
+
+# Recommended do NOT modify from this point forward
+
+services:
+
+  nginx:
+    container_name: nginx
+    hostname: nginx
+    image: yakdata/nginx-1.21.3
+    build:
+      context: ./nginx/1.21.3
+      dockerfile: Dockerfile
+    network_mode: yakdata
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - '/yakdata/certs:/yakdata/certs:ro'
+      - '/yakdata/config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro'
+      - '/yakdata/config/nginx/templates:/etc/nginx/templates:rw,cached'
+      - '/yakdata/logs/nginx:/yakdata/logs/nginx'
+      - '/yakdata/webassets:/yakdata/webassets'
+    restart: unless-stopped
+    environment:
+      - TZ=${TZ}
+      - NGINX_ENVSUBST_TEMPLATE_SUFFIX=.conf
+      - DOMAIN=${DOMAIN}
+    <<: *nginx_resources
+    depends_on:
+      shinyproxy:
+        condition: service_healthy
+      prometheus:
+        condition: service_started
+
+  shinyproxy:
+    container_name: shinyproxy
+    hostname: shinyproxy
+    image: yakdata/shinyproxy-2.5.0
+    build:
+      context: ./shinyproxy/2.5.0
+      dockerfile: Dockerfile
+    network_mode: yakdata
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /yakdata/config/shinyproxy/application.yml:/opt/shinyproxy/application.yml
+      - /yakdata/config/shinyproxy/favicon.ico:/opt/shinyproxy/favicon.ico
+      - /yakdata/config/shinyproxy/templates/yakdata:/opt/shinyproxy/templates/yakdata
+      - /yakdata/logs/shinyproxy:/yakdata/logs/shinyproxy
+      - /yakdata/shinyproxy_content:/yakdata/shinyproxy_content
+    restart: unless-stopped
+    environment:
+      - TZ=${TZ}
+    <<: *shinyproxy_resources
+    healthcheck:
+      test: curl -L 127.0.0.1:8080
+
+  rstudio:
+    container_name: rstudio
+    hostname: rstudio
+    image: yakdata/rstudio-verse-r-4.1.1
+    network_mode: yakdata
+    volumes:
+      - /yakdata/sysdata/R/4.1.1:/yakdata/sysdata/R/4.1.1
+      - /yakdata/config/R/Rprofile.site:/usr/local/lib/R/etc/Rprofile.site
+      - /yakdata/shinyproxy_content:/home/rstudio/yakdata/shinyproxy_content
+      - /yakdata/shinyproxy_content:/yakdata/shinyproxy_content
+      - /yakdata/config/shinyproxy/application.yml:/home/rstudio/yakdata/config/shinyproxy/application.yml
+      - /yakdata/webassets:/home/rstudio/yakdata/webassets
+      - /yakdata/webassets:/yakdata/webassets
+    restart: unless-stopped
+
+  cadvisor:
+    container_name: cadvisor
+    hostname: cadvisor
+    image: 'google/cadvisor:canary'
+    network_mode: yakdata
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk:/dev/disk/:ro
+    restart: unless-stopped
+    <<: *cadvisor_resources
+
+  prometheus:
+    container_name: prometheus
+    hostname: prometheus
+    image: prom/prometheus:v2.30.3
+    network_mode: yakdata
+    volumes:
+      - /yakdata/config/prometheus:/etc/prometheus
+      - /yakdata/sysdata/prometheus_data:/prometheus
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    <<: *prometheus_resources
+
+  grafana:
+    container_name: grafana
+    hostname: grafana
+    image: grafana/grafana:8.2.0
+    network_mode: yakdata
+    volumes:
+      - /yakdata/sysdata/grafana_data:/var/lib/grafana
+      - /yakdata/config/grafana/defaults.ini:/usr/share/grafana/conf/defaults.ini:ro
+      - /yakdata/config/grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - /yakdata/config/grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+    restart: unless-stopped
+    environment:
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_ROOT_URL=/monitor
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_BASIC_ENABLED=false
+      - TZ=${TZ}
+    <<: *grafana_resources
+    depends_on:
+      prometheus:
+        condition: service_started
+
+
+networks:
+  yakdata:
+    driver: bridge

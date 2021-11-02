@@ -1,0 +1,26 @@
+version: '2.2'
+services:
+
+  acme:
+    build:
+      context: ./code/acme
+      dockerfile: ./Dockerfile
+    image: yakdata/acme
+    container_name: acme
+    networks:
+      - network
+    ports:
+      - 80:80
+    volumes:
+      - ../ycustcontrol/admin_server_specific/acme.sh:/acme.sh
+    environment:
+      - AUTO_UPGRADE=0             # disable auto update
+      - LOG_FILE=/proc/1/fd/1      # redirect all cron output to stdout
+      - CF_Email={AdminEmail}
+    command: daemon
+    restart: unless-stopped
+
+networks:
+  network:
+    external:
+      name: nat
