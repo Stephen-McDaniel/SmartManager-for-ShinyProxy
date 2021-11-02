@@ -1,7 +1,7 @@
-# YakData SmartManager for ShinyProxy with R, RStudio IDE and Monitoring
+# YakData SmartManager for ShinyProxy
 ## The production-ready way to securely share R shiny web apps & RMarkdown docs. Includes R 4.1.1, server-based RStudio IDE, monitoring of containers via Grafana dashboards & free SSL renewal.
 
-- [YakData SmartManager for ShinyProxy with R, RStudio IDE and Monitoring](#yakdata-smartmanager-for-shinyproxy-with-r-rstudio-ide-and-monitoring)
+- [YakData SmartManager for ShinyProxy](#yakdata-smartmanager-for-shinyproxy)
   - [The production-ready way to securely share R shiny web apps & RMarkdown docs. Includes R 4.1.1, server-based RStudio IDE, monitoring of containers via Grafana dashboards & free SSL renewal.](#the-production-ready-way-to-securely-share-r-shiny-web-apps--rmarkdown-docs-includes-r-411-server-based-rstudio-ide-monitoring-of-containers-via-grafana-dashboards--free-ssl-renewal)
   - [🎶 Features](#-features)
   - [🧰 Install and setup 🔒 SSL/TLS](#-install-and-setup--ssltls)
