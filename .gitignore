@@ -1,2 +1,3 @@
 ./yakdata/certs/sp.yakdata.com.chained.pem
 ./yakdata/utilities/acme/ycustcontrol/admin_server_specific/acme.sh/ca/acme-v02.api.letsencrypt.org/account.key
+./yakdata/utilities/acme/ycustcontrol/admin_server_specific/final/dev-11-0.yakdata.com.chained.pem
