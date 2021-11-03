@@ -31,7 +31,7 @@ cd "$dir_local"
 # rsync must be installed on local and server
 rsync --progress -h -v -r -P -t -z --no-o --no-g \
       -e "ssh -i $keyfile" \
-      $dir_local ubuntu@$host:$dir_remote --delete
+      $dir_local ubuntu@$host:$dir_remote
 ```
 
 4) On the server, run:
@@ -45,11 +45,13 @@ chmod 644 /etc/cron.d/*
 
 chmod +x /yakdata/utilities/scripts/*.sh
 
-chmod +x /yakdata/utilities/acme/renewssl.sh
-
 chmod +x /yakdata/apps/R/4.1.1/scripts/*.sh
 
 chmod +x /yakdata/apps/nginx/1.21.3/scripts/*.sh
+
+mkdir /yakdata/sysdata
+mkdir /yakdata/sysdata/prometheus_data
+mkdir /yakdata/sysdata/grafana_data
 
 chmod -R 777 /yakdata/sysdata/prometheus_data
 chmod -R 775 /yakdata/config/prometheus
@@ -79,3 +81,5 @@ chmod -R 777 /yakdata/sysdata/R/4.1.1/site-library
 # pull images in docker-compose 
 docker-compose pull
 ```
+
+Next, complete all steps in [/yakdata/SSL_SETUP.md](https://github.com/Stephen-McDaniel/SmartManager-for-ShinyProxy/blob/master/SSL_SETUP.md)
