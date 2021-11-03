@@ -34,7 +34,7 @@ rsync --progress -h -v -r -P -t -z --no-o --no-g \
       $dir_local ubuntu@$host:$dir_remote --delete
 ```
 
-4) Run:
+4) On the server, run:
 
 ```bash
 # run the following command as root
@@ -62,7 +62,7 @@ chmod -R 777 /yakdata/apps/logs-docker-compose-builds
 exit
 ```
 
-5) Run:
+5) On the server, run:
 ```bash
 cd /yakdata/apps/
 
