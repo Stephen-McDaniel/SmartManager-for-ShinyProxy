@@ -37,6 +37,7 @@
 - Grafana monitorring with Prometheus and CAdvisor
 ![Grafana monitorring with Prometheus and CAdvisor](./005_Grafana_Prometheus_CAdvisor_Monitorring_YakData_SmartManager_for_ShinyProxy.png)
 
+- Standard ShinyProxy admin page
 ![Standard ShinyProxy admin page](./006_standard_ShinyProxy_admin_page_YakData_SmartManager_for_ShinyProxy.png)
 
 ## 🧰 Install and setup 🔒 SSL/TLS
