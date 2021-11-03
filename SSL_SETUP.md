@@ -21,6 +21,8 @@ sudo reboot
 3) Issue your first SSL certificate, on the server run
 
 ```bash
+sudo mkdir /yakdata/certs
+sudo chmod 777 /yakdata/certs
 sudo /yakdata/utilities/scripts/renewssl.sh
 ```
 
