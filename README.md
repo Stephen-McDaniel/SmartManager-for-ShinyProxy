@@ -20,6 +20,25 @@
 * Includes R 4.1.1 based on the Rocker project and  server-based RStudio IDE onboard so that admins can easily install new libraries and debug R shiny programs. 
 * Monitoring via Grafana,Prometheus and CAdvisor for real-time dashboards at the container level
 
+## 📷 Screenshots
+
+- Login
+![Login](./001_Login_YakData_SmartManager_for_ShinyProxy.png)
+
+- Home page
+![Home page](./002_home_page_YakData_SmartManager_for_ShinyProxy.png)
+
+- R shiny app example
+![R shiny app example](./003_R_shiny_app_YakData_SmartManager_for_ShinyProxy.png)
+
+- RStudio IDE
+![RStudio IDE](./004_RStudio_IDE_YakData_SmartManager_for_ShinyProxy.png)
+
+- Grafana monitorring with Prometheus and CAdvisor
+![Grafana monitorring with Prometheus and CAdvisor](./005_Grafana_Prometheus_CAdvisor_Monitorring_YakData_SmartManager_for_ShinyProxy.png)
+
+![Standard ShinyProxy admin page](./006_standard_ShinyProxy_admin_page_YakData_SmartManager_for_ShinyProxy.png)
+
 ## 🧰 Install and setup 🔒 SSL/TLS
 
 - Complete all the steps in [/yakdata/INSTALL.md](https://github.com/Stephen-McDaniel/SmartManager-for-ShinyProxy/blob/master/INSTALL.md)
