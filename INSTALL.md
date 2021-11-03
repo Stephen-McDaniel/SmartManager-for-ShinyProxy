@@ -21,7 +21,7 @@ mkdir /yakdata/apps/logs-docker-compose-builds
 #    wget and unzip on the server.
 
 # run on local machine after unzipping the repo
-dir_local="/path/to/downloaded/and/unzippped/repo/"
+dir_local="/path/to/downloaded/and/unzippped/repo/yakdata/"
 dir_remote=/yakdata
 keyfile='/path/to/your/pem/my.pem'
 host=my.host.com
