@@ -9,6 +9,7 @@ Short-circuit the install with the Amazon Web Services AMI of YakData SmartManag
 ```bash
 sudo mkdir /yakdata
 sudo chown ubuntu:ubuntu /yakdata
+mkdir /yakdata/apps/logs-docker-compose-builds
 ```
 
 3) Upload /yakdata in this repository to /yakdata on the host system
@@ -70,7 +71,7 @@ docker network create yakdata
 # build the system
 (
 docker-compose build 
-) 2>&1 |& tee /yakdata/apps/logs-docker-compose-builds/R-shinyproxy-2.5.0.log &
+) 2>&1 |& tee /yakdata/apps/logs-docker-compose-builds/R-shinyproxy-2.5.0.log
 
 # write to site-library
 chmod -R 777 /yakdata/sysdata/R/4.1.1/site-library
