@@ -79,7 +79,7 @@ docker-compose build
 chmod -R 777 /yakdata/sysdata/R/4.1.1/site-library
 
 # pull images in docker-compose 
-docker-compose pull
+docker-compose pull shinyproxy cadvisor prometheus nginx grafana
 ```
 
 Next, complete all steps in [/yakdata/SSL_SETUP.md](https://github.com/Stephen-McDaniel/SmartManager-for-ShinyProxy/blob/master/SSL_SETUP.md)
