@@ -22,9 +22,9 @@
 
 ## 🧰 Install and setup 🔒 SSL/TLS
 
-Complete all the steps in /yakdata/INSTALL.md
-Then complete all steps in /yakdata/SSL_SETUP.md
-Alternatively, use the AWS AMI from YakData.
+- Complete all the steps in [/yakdata/INSTALL.md](https://github.com/Stephen-McDaniel/SmartManager-for-ShinyProxy/blob/master/INSTALL.md)
+- Then complete all steps in [/yakdata/SSL_SETUP.md](https://github.com/Stephen-McDaniel/SmartManager-for-ShinyProxy/blob/master/SSL_SETUP.md)
+- Alternatively, use the AWS AMI from YakData.
 
 ## 🔐 LICENSE
 
