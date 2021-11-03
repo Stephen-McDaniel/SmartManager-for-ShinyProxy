@@ -20,7 +20,9 @@ sudo reboot
 
 3) Issue your first SSL certificate, on the server run
 
+```bash
 sudo /yakdata/utilities/scripts/renewssl.sh
+```
 
 + This will stop all currently running containers.
 + A new SSL certificate will be obtained and configured for use with NGINX.
