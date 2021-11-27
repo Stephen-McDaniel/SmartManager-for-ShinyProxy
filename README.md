@@ -1,6 +1,10 @@
 # YakData SmartManager for ShinyProxy
-## The production-ready way to securely share R shiny web apps & RMarkdown docs. Includes R 4.1.1, server-based RStudio IDE, monitoring of containers via Grafana dashboards & free SSL renewal.
 
+### The production-ready way to securely share R shiny web apps &amp; RMarkdown documents. <strong>Free</strong> under the Apache 2.0 license.<br><br>YakData SmartManager for ShinyProxy includes R 4.1.1, server-based RStudio IDE, monitoring of containers via Grafana dashboards &amp; free SSL renewal.<br><br>Deploy the complete solution in minutes with the <a href="https://aws.amazon.com/marketplace/pp/prodview-de7oj4x576blg">AWS Marketplace AMI from YakData</a>. Or do-it-yourself here on GitHub.<br>&nbsp;
+
+![What is YakData SmartManager for ShinyProxy?](./YakData-SmartManager-for-ShinyProxy.gif)
+
+---
   - [🚀 Features](#-features)
   - [🧰 Install and setup 🔒 SSL/TLS](#-install-and-setup--ssltls)
   - [🔐 LICENSE](#-license)
@@ -9,8 +13,7 @@
   - [📘 Docs](#-docs)
   - [🎡 Alternatives](#-alternatives)
   - [🧑‍💻 Discussion](#-discussion)
-  
-![What is YakData SmartManager for ShinyProxy?](./YakData-SmartManager-for-ShinyProxy.gif)
+  - [⛳ Availability] (#-availability)
 
 ## 🚀 Features
 
@@ -19,6 +22,7 @@
 * ShinyProxy supports a wide range of authentication methods including native user/password authentication, LDAP, Kerberos, SSO, OpenID Connect, SAML 2.0, Twitter, Facebook, Google, Github,  LinkedIn, custom web service-based or open to the public.
 * Includes R 4.1.1 based on the Rocker project and  server-based RStudio IDE onboard so that admins can easily install new libraries and debug R shiny programs. 
 * Monitoring via Grafana,Prometheus and CAdvisor for real-time dashboards at the container level
+* Deploy the complete solution in minutes <a href="https://aws.amazon.com/marketplace/pp/prodview-de7oj4x576blg" target="_blank">with the AWS Marketplace AMI from YakData</a>. We choose to appear on the AWS Marketplace since they require all AMI's to go through stringent architecture and security checks before appearing on their Marketplace. And at many organizations, AWS is already an approved vendor, simplifying your job all-around!
 
 ## 📷 Screenshots
 
@@ -87,3 +91,8 @@ Another alternative is roll-your-own security model around open source Shiny Ser
 
 Head over to [The YakData Community](https://meta.yakdata.com). You can login to comment with your Github account, a Google account or your email and a password.
 
+## ⛳ Availability
+
+Deploy the complete solution in minutes <a href="https://aws.amazon.com/marketplace/pp/prodview-de7oj4x576blg" target="_blank">with the AWS Marketplace AMI from YakData</a>. We choose to appear on the AWS Marketplace since they require all AMI's to go through stringent architecture and security checks before appearing on their Marketplace. And at many organizations, AWS is already an approved vendor, simplifying your job all-around!
+
+Do-it-yourself on GitHub.
