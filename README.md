@@ -58,11 +58,11 @@ This license change is retroactive to all releases up until this change.
 
 ## ⭐ Inspiration
 
-* ShinyProxy is a affordable, powerful alternative to paid offerings such as RStudio Shiny Server Pro and part of RStudio Connect capabilities.
+* ShinyProxy is a **free**, powerful alternative to paid offerings such as RStudio Shiny Server Pro and part of RStudio Connect capabilities.
 * ShinyProxy is a proven alternative with years of development, feedback and releases.
 * We experienced ShinyProxy at some of our client engagements and saw the enthusiasm from companies using it.
 
-If you love this project, please give it a ⭐.
+If you benefit from this project, please give it a ⭐ here on GitHub. You are awesome for sharing your support!
 
 ## 📫 Issues
 
