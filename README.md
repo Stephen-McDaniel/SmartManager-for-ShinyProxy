@@ -13,7 +13,7 @@
   - [📘 Docs](#-docs)
   - [🎡 Alternatives](#-alternatives)
   - [🧑‍💻 Discussion](#-discussion)
-  - [⛳ Availability] (#-availability)
+  - [⛳ Availability](#-availability)
 
 ## 🚀 Features
 
