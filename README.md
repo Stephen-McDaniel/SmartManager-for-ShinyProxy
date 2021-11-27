@@ -22,7 +22,7 @@
 * ShinyProxy supports a wide range of authentication methods including native user/password authentication, LDAP, Kerberos, SSO, OpenID Connect, SAML 2.0, Twitter, Facebook, Google, Github,  LinkedIn, custom web service-based or open to the public.
 * Includes R 4.1.1 based on the Rocker project and  server-based RStudio IDE onboard so that admins can easily install new libraries and debug R shiny programs. 
 * Monitoring via Grafana,Prometheus and CAdvisor for real-time dashboards at the container level
-* Deploy the complete solution in minutes <a href="https://aws.amazon.com/marketplace/pp/prodview-de7oj4x576blg" target="_blank">with the AWS Marketplace AMI from YakData</a>. We choose to appear on the AWS Marketplace since they require all AMI's to go through stringent architecture and security checks before appearing on their Marketplace. And at many organizations, AWS is already an approved vendor, simplifying your job all-around!
+* Deploy the complete solution in minutes <a href="https://aws.amazon.com/marketplace/pp/prodview-de7oj4x576blg" target="_blank">with the AWS Marketplace AMI from YakData</a>. We choose to appear on the AWS Marketplace since they require all AMI's go through stringent architecture and security checks before appearing on their Marketplace. And at many organizations, AWS is already an approved vendor, simplifying your job all-around!
 
 ## 📷 Screenshots
 
@@ -93,6 +93,6 @@ Head over to [The YakData Community](https://meta.yakdata.com). You can login to
 
 ## ⛳ Availability
 
-Deploy the complete solution in minutes <a href="https://aws.amazon.com/marketplace/pp/prodview-de7oj4x576blg" target="_blank">with the AWS Marketplace AMI from YakData</a>. We choose to appear on the AWS Marketplace since they require all AMI's to go through stringent architecture and security checks before appearing on their Marketplace. And at many organizations, AWS is already an approved vendor, simplifying your job all-around!
+Deploy the complete solution in minutes <a href="https://aws.amazon.com/marketplace/pp/prodview-de7oj4x576blg" target="_blank">with the AWS Marketplace AMI from YakData</a>. We choose to appear on the AWS Marketplace since they require all AMI's go through stringent architecture and security checks before appearing on their Marketplace. And at many organizations, AWS is already an approved vendor, simplifying your job all-around!
 
 Do-it-yourself on GitHub.
