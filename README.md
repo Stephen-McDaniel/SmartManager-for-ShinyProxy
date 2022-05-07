@@ -1,6 +1,6 @@
 # YakData SmartManager for ShinyProxy
 
-### The production-ready way to securely share R shiny web apps &amp; RMarkdown documents. <strong>Free</strong> under the Apache 2.0 license.<br><br>YakData SmartManager for ShinyProxy includes R 4.1.1, server-based RStudio IDE, monitoring of containers via Grafana dashboards &amp; free SSL renewal.<br><br>Deploy the complete solution in minutes with the <a href="https://aws.amazon.com/marketplace/pp/prodview-de7oj4x576blg">AWS Marketplace AMI from YakData</a>. Or do-it-yourself here on GitHub.<br>&nbsp;
+The production-ready way to securely share R shiny web apps &amp; RMarkdown documents. <strong>Free</strong> under the Apache 2.0 license.<br><br>YakData SmartManager for ShinyProxy includes R 4.1.1, server-based RStudio IDE, monitoring of containers via Grafana dashboards &amp; free SSL renewal.<br><br>Deploy the complete solution in minutes with the <a href="https://aws.amazon.com/marketplace/pp/prodview-de7oj4x576blg">AWS Marketplace AMI from YakData</a>. Or do-it-yourself here on GitHub.<br>&nbsp;
 
 ![What is YakData SmartManager for ShinyProxy?](./YakData-SmartManager-for-ShinyProxy.gif)
 
