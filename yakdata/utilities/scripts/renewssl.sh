@@ -27,7 +27,7 @@ docker exec acme \
    -d "$DOMAIN"  \
    -m "$AdminEmail" \
    --standalone   \
-   --server letsencrypt \
+   --server zerossl \
    --httpport 80
 
 docker-compose down

@@ -5,7 +5,7 @@
 # 33 8 * * 0 ydadmin  /yakdata/utilities/scripts/checkagerenewssl.sh
 # Tries to run every Sunday
 
-ENVFILE="/yakdata/config/serverinfo.env"
+ENVFILE="/yakdata/apps/.env"
 AGE=0
 if test -f "$ENVFILE"; then
   . "$ENVFILE"

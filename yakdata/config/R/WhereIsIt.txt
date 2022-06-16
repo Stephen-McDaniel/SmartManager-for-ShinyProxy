@@ -1,0 +1,4 @@
+Rprofile.site would ideally be located here.
+However, it must be copied into the image via Dockerfile 
+for use with ShinyProxy, 
+so it is in /yakdata/apps/smartr/Rprofile.site

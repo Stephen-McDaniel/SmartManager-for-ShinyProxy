@@ -1,0 +1,9 @@
+./yakdata/certs/sp.yakdata.com.chained.pem
+./yakdata/utilities/acme/ycustcontrol/admin_server_specific/acme.sh/ca/acme-v02.api.letsencrypt.org/account.key
+./yakdata/utilities/acme/ycustcontrol/admin_server_specific/final/dev-11-0.yakdata.com.chained.pem
+./yakdata/utilities/acme/ycustcontrol/admin_server_specific/final/dev-11-0.yakdata.com.chained.pem
+./yakdata/utilities/acme/ydeploy/code/acme-old/dnsapi/dns_ali.sh
+./yakdata/utilities/acme/ydeploy/code/acme/dnsapi/dns_doapi.sh
+./yakdata/utilities/acme/ydeploy/code/acme/dnsapi/dns_dynu.sh
+./yakdata/utilities/acme/ydeploy/code/acme/dnsapi/dns_opnsense.sh
+./yakdata/shinyproxy_content/shinyproxy-2.6.1.jar

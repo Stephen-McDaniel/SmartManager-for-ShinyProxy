@@ -7,17 +7,7 @@ version: '2.3'
 #  All Rights Reserved.
 #  YakData, LLC is a Florida, USA private limited company.
 #
-#  Distributed under the YUMMY License v1.0 -
-#     a sustainable, open-source license
-#     the license text is available at
-#     https://github.com/SmartManagerPro/ShinyProxy
-#
-#  YoU make Money, we make MoneY. If you don't make money
-#     using it, you are allowed to use the Software with a
-#     free license key issued at https://YakData.com
-#     License Keys include periodic security and upgrade releases.
-#     All production usage of this software requires a
-#     valid license key obtained at https://YakData.com
+#  Distributed under the Apache License 2.0
 #
 #  The Software is provided "as is", without warranty of any kind,
 #     express or implied, including but not limited to the
@@ -32,7 +22,7 @@ version: '2.3'
 #   Developer: Stephen McDaniel
 #
 #        Date: 2021
-#   Mod Dates:
+#   Mod Dates: 2022MAY
 #
 #        File: /yakdata/apps/docker-compose.yml
 # Description:
@@ -93,9 +83,9 @@ services:
   nginx:
     container_name: nginx
     hostname: nginx
-    image: yakdata/nginx-1.21.3
+    image: yakdata/nginx-1.21.6
     build:
-      context: ./nginx/1.21.3
+      context: ./nginx/1.21.6
       dockerfile: Dockerfile
     network_mode: yakdata
     ports:
@@ -122,16 +112,15 @@ services:
   shinyproxy:
     container_name: shinyproxy
     hostname: shinyproxy
-    image: yakdata/shinyproxy-2.5.0
+    image: yakdata/shinyproxy-2.6.1
     build:
-      context: ./shinyproxy/2.5.0
+      context: ./shinyproxy/2.6.1
       dockerfile: Dockerfile
     network_mode: yakdata
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /yakdata/config/shinyproxy/application.yml:/opt/shinyproxy/application.yml
-      - /yakdata/config/shinyproxy/favicon.ico:/opt/shinyproxy/favicon.ico
-      - /yakdata/config/shinyproxy/templates/yakdata:/opt/shinyproxy/templates/yakdata
+      - /yakdata/config/shinyproxy/resources:/yakdata/config/shinyproxy/resources
       - /yakdata/logs/shinyproxy:/yakdata/logs/shinyproxy
       - /yakdata/shinyproxy_content:/yakdata/shinyproxy_content
     restart: unless-stopped
@@ -144,14 +133,18 @@ services:
   rstudio:
     container_name: rstudio
     hostname: rstudio
-    image: yakdata/rstudio-verse-r-4.1.1
+    image: yakdata/smartr
+    build:
+      context: ./smartr
+      dockerfile: Dockerfile
     network_mode: yakdata
     volumes:
-      - /yakdata/sysdata/R/4.1.1:/yakdata/sysdata/R/4.1.1
-      - /yakdata/config/R/Rprofile.site:/usr/local/lib/R/etc/Rprofile.site
+      # site-library goes here
+      - /yakdata/sysdata/R/4.1.3:/yakdata/sysdata/R/4.1.3
+      - /yakdata/apps/smartr/Rprofile.site:/usr/local/lib/R/etc/Rprofile.site
       - /yakdata/shinyproxy_content:/home/rstudio/yakdata/shinyproxy_content
       - /yakdata/shinyproxy_content:/yakdata/shinyproxy_content
-      - /yakdata/config/shinyproxy/application.yml:/home/rstudio/yakdata/config/shinyproxy/application.yml
+      - /yakdata/config/shinyproxy:/home/rstudio/yakdata/config/shinyproxy
       - /yakdata/webassets:/home/rstudio/yakdata/webassets
       - /yakdata/webassets:/yakdata/webassets
     restart: unless-stopped
@@ -159,7 +152,7 @@ services:
   cadvisor:
     container_name: cadvisor
     hostname: cadvisor
-    image: 'google/cadvisor:canary'
+    image: 'gcr.io/cadvisor/cadvisor:v0.44.0'
     network_mode: yakdata
     volumes:
       - /:/rootfs:ro
@@ -173,7 +166,7 @@ services:
   prometheus:
     container_name: prometheus
     hostname: prometheus
-    image: prom/prometheus:v2.30.3
+    image: prom/prometheus:v2.34.0
     network_mode: yakdata
     volumes:
       - /yakdata/config/prometheus:/etc/prometheus
@@ -191,7 +184,7 @@ services:
   grafana:
     container_name: grafana
     hostname: grafana
-    image: grafana/grafana:8.2.0
+    image: grafana/grafana:8.5.2
     network_mode: yakdata
     volumes:
       - /yakdata/sysdata/grafana_data:/var/lib/grafana

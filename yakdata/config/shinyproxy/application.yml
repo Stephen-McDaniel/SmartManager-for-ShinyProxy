@@ -12,7 +12,7 @@ proxy:
   logo-url: /webassets/images/YakData_Logo_20171101_S_36_36.png.webp
   # Recommended to not change the following lines - breaking changes
   port: 8080
-  template-path: /opt/shinyproxy/templates/yakdata
+  template-path: /yakdata/config/shinyproxy/resources/templates
   server:
     forward-headers-strategy: native
   docker:
@@ -31,16 +31,26 @@ proxy:
       groups: scientists
   # published content
   specs:
+    - id: rstudio_shiny_app
+      display-name: Default shiny app from RStudio
+      description: Built in RStudio from YakData SmartManager, a default shiny app (not part of the shinyproxy samples.)
+      container-cmd: ["R", "-e", "shiny::runApp('/yakdata/shinyproxy_content/test')"]
+      container-image: yakdata/smartr
+      container-network: yakdata
+      container-volumes: [ "/yakdata/shinyproxy_content/test:/yakdata/shinyproxy_content/test" ]
+      access-groups: [admins, scientists]
     - id: 01_hello
-      display-name: Hello Application
-      description: Application which demonstrates the basics of a Shiny app
+      display-name: Hello Application (Admins only)
+      description: A sample app from the shinyproxy package demonstrating the basics of a Shiny app
       container-cmd: ["R", "-e", "shinyproxy::run_01_hello()"]
-      container-image: yakdata/verse-r-4.1.1
+      container-image: yakdata/smartr
       container-network: yakdata
       access-groups: admins
     - id: 06_tabsets
+      display-name: Tabs in a shiny app
+      description: A sample app from the shinyproxy package going beyond the basic layout with tabs
       container-cmd: ["R", "-e", "shinyproxy::run_06_tabsets()"]
-      container-image: yakdata/verse-r-4.1.1
+      container-image: yakdata/smartr
       container-network: yakdata
       access-groups: [admins, scientists]
 
