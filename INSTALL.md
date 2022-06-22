@@ -54,9 +54,12 @@ chmod +x /yakdata/apps/nginx/1.21.6/*.sh
 mkdir /yakdata/sysdata
 mkdir /yakdata/sysdata/prometheus_data
 mkdir /yakdata/sysdata/grafana_data
+mkdir /yakdata/R
 
 chmod -R 777 /yakdata/sysdata/prometheus_data
 chmod -R 775 /yakdata/config/prometheus
+
+sudo chmod 775 /yakdata/R
 
 chmod -R 777 /yakdata/sysdata/grafana_data
 chmod -R 775 /yakdata/config/grafana
