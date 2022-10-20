@@ -10,6 +10,7 @@ Alternatively, if you install your own R docker containers to run apps, then exe
 
 ```bash
 sudo mkdir /yakdata
+sudo mkdir /yakdata/apps
 sudo chown ubuntu:ubuntu /yakdata
 mkdir /yakdata/apps/logs-docker-compose-builds
 ```
