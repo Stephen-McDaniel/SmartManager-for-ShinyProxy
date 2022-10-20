@@ -40,5 +40,3 @@ sudo /yakdata/utilities/scripts/renewssl.sh
 ```bash
 nano /yakdata/config/shinyproxy/application.yml
 ```
-
-6) If you are a commercial user, per the [YUMMY License](https://github.com/Stephen-McDaniel/SmartManager-for-ShinyProxy/blob/master/LICENSE.md), head over to YakData.com and buy a license key within ten days of deployment. The license key is free for non-commercial use, visit the [YakData Community](https://meta.yakdata.com) for instructions for the simple personal use license steps. Amazon Web Services AMI pricing includes the commercial license, just follow the AMI instructions. 
